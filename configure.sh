@@ -20,8 +20,8 @@ cat << EOF > /usr/local/etc/xray/config.json
             "protocol": "dokodemo-door",
             "settings": {
                 "address": "127.0.0.1",
-                "port": 37373,
-                "network": "tcp"
+                "port": 8080,
+                "network": "tcp,udp"
             }
         },
         {
@@ -40,8 +40,26 @@ cat << EOF > /usr/local/etc/xray/config.json
             "streamSettings": {
               "network": "ws"
             }
+        },
+        {
+            "tag": "client_in",
+            "port": $PORT,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "$UUID",
+                        "alterId": 0,
+                        "security": "chacha20-poly1305"
+                    }
+                ]
+            },
+            "streamSettings": {
+              "network": "ws"
+            }
         }
     ],
+"outbounds": [{"tag": "crossfire", "protocol": "freedom", "settings": {}}],
     "reverse": {
         "portals": [
             {
@@ -65,6 +83,13 @@ cat << EOF > /usr/local/etc/xray/config.json
                     "in_interconn"
                 ],
                 "outboundTag": "portal"
+            },
+            {
+                "type": "field",
+                "inboundTag": [
+                    "client_in"
+                ],
+                "outboundTag": "crossfire"
             }
         ]
     }
