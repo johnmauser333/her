@@ -56,7 +56,10 @@ cat << EOF > /usr/local/etc/xray/config.json
             },
             "streamSettings": {
               "network": "ws"
-            }
+            },
+            "wsSettings": {
+              "path": "/v2ray"
+              }
         }
     ],
 "outbounds": [{"tag": "crossfire", "protocol": "freedom", "settings": {}}],
