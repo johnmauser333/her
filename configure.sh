@@ -2,7 +2,7 @@
 
 # Download and install V2Ray
 mkdir /tmp/xray
-wget -q https://github.com/XTLS/Xray-core/releases/download/v1.5.4/Xray-linux-64.zip -O /tmp/xray/xray.zip
+wget -q https://github.com/XTLS/Xray-core/releases/download/v1.5.9/Xray-linux-64.zip -O /tmp/xray/xray.zip
 unzip /tmp/xray/xray.zip -d /tmp/xray
 install -m 755 /tmp/xray/xray /usr/local/bin/xray
 
