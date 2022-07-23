@@ -46,7 +46,7 @@ cat << EOF > /usr/local/etc/xray/config.json
         "portals": [
             {
                 "tag": "portal",
-                "domain": "google.com"
+                "domain": "yoshimitsu737-freenom.ml"
             }
         ]
     },
